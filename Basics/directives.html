@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app= angular.module('myApp',[]);
+        app.controller('myController',function($scope){
+            $scope.msg="Welcome to AngularJS Tutorial"
+        });
+    </script>
+</head>
+
+<!-- ng-app -->
+<body bgcolor="pink" ng-app>
+
+    <h1>AngularJS Directives</h1>
+    <div>
+        <!-- Expression -->
+        <p>
+            {{24 + 5 + 28}} <br>
+            {{"Hello" +" "+ "Sandhiya"}} <br>
+            {{12*28}}
+        </p>
+    </div>
+
+    <!-- ng-init -->
+    <div ng-init="radius=25; PI=3.14">
+
+        <!-- using expression -->
+        Circumference of a circle of radius 25 is {{2*PI*radius}} <br>
+        <!-- using ng-bind -->
+        Circle Circumference: <span ng-bind="2*PI*radius"></span>
+    </div>
+
+    <!-- ng-model -->
+    <div>
+        <br>
+        Enter Name: <input type="text" ng-model="name"><br>
+        Hello {{name}}!
+    </div>
+
+    <!-- ng-repeat -->
+    <div ng-init="array = [12,24,28]">
+        <ul>
+            <li ng-repeat="x in array">{{x}}</li>
+        </ul>
+    </div>
+    <br>
+
+    <!-- ng-if -->
+    <div ng-init="checked=true">
+        New User: <input type="checkbox" ng-model="checked"> <br>
+        Name: <input type="text" ng-if="checked">
+    </div>
+    <br>
+
+    <!-- ng-readonly -->
+    <div ng-init="checked=true">
+       
+        Read Only : <input type="text" ng-readonly="checked" value="AngularJS BuiltIn Directives">
+    </div>
+    <br>
+
+    <!-- ng-disabled-->
+    <div ng-init="checked=true">
+        
+        Disabled : <input type="text" ng-disabled="checked" value="Welcome to AngularJS">
+    </div>
+    <br>
+
+    <!-- ng-controller -->
+    <div ng-controller="myController">
+        Controller Message: {{msg}}
+    </div>
+</body>
+</html>

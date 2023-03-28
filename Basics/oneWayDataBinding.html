@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Way Data Binding</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app= angular.module('myApp',[]);
+        // controller
+        app.controller("oneWay",function($scope){
+            // model
+            $scope.msg="Welcome to learn one Way Data Binding in AngularJS";
+        });
+    </script>
+</head>
+<body>
+    <center>
+        <h1> One Way Data Binding</h1>
+        <!-- view -->
+        <div ng-controller="oneWay">
+            <!-- expression -->
+            {{msg}} 
+            <br>
+            <!-- ng-bind directive -->
+            <span ng-bind="msg"></span>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="custApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript">
+        var app= angular.module("custApp",[]);
+        //controller
+        app.controller('myCustomer',function($scope){
+            // model
+            $scope.customer={
+                'Name': 'Sandhiya',
+                'Gender': 'Female',
+                'Job':'Software Professional'
+            }
+            $scope.status=function(){
+                alert("Success");
+            }
+            $scope.emailID=function(mail){
+                alert(mail);
+            }
+        });
+
+        app.controller('myCustomerDetails',function($scope){
+            $scope.firstName = "Sandhiya";
+            $scope.lastName = "Ramalingam";
+        });
+
+        app.controller('myCustomerCourse',function($scope){
+            $scope.course="AngularJS";
+            $scope.duration="3 months";
+        });
+
+        app.controller('myCustomerSalaryDetails',function($scope){
+            $scope.employee = {
+                name:'Sandhiya',
+                salary :16000
+            }
+        });
+
+        app.controller('ngParent',function($scope){
+            $scope.info="Hello";
+        });
+
+        app.controller('ngChild',function($scope){
+            $scope.info1="Everyone";
+        });
+
+    </script>
+</head>
+<body>
+    <h1>MVC Architecture</h1>
+    <p>Model View Controller</p>
+    <!-- view -->
+    <div ng-controller='myCustomer'>
+        <h3>{{customer.Name}}</h3>
+        <h3>{{customer.Gender}}</h3>
+        <h3>{{customer.Job}}</h3>
+        <br>
+        <button ng-click="status()"> Display Status</button>
+        <br>
+        Enter EmailID : <input type="text" ng-model="email">
+        <button ng-click="emailID(email)"> Display Email ID</button>
+    </div>
+    <br>
+
+    <div ng-controller="myCustomerDetails">
+        <p>Details: </p>
+        First Name : {{firstName}}
+        <br>
+        Last Name : {{lastName}}
+        <br>
+        This is {{firstName + " "+ lastName}}
+    </div>
+    <br>
+
+    <div ng-controller="myCustomerCourse">
+        <p>Course Deatils:</p>
+        Course <input type="text" ng-model="course">
+        <br><br>
+        Duration <input type="text" ng-model="duration">
+        <br><br>
+        Course with duration : {{course +" "+ duration}}
+    </div>
+    <br>
+    <div ng-controller="myCustomerSalaryDetails">
+        <p>Salary Details:</p>
+        Employee Name: {{employee.name}}
+        <br>
+        Employee Salary: {{employee.salary}}
+    </div>
+    <br>
+    <!-- nested controller -->
+    <div ng-controller="ngParent">
+        Parent: {{info}}
+        <div ng-controller="ngChild">
+            Child: {{info1}} <br>
+            Parent inside Child: {{info}}
+        </div>
+
+    </div>
+</body>
+</html>

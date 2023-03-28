@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body bgcolor="lightgreen" ng-app="formCtrlApp">
+    <div>
+        <h1>Employee Information</h1>
+        <form action="#" ng-controller="empController">
+            {{info}} <br><br>
+            Employee Name <br>
+            <input type="text" placeholder="name" ng-model="emp.name"> <br>
+            <br>
+            Employee ID <br>
+            <input type="text" placeholder="ID" ng-model="emp.id"> <br>
+            <br>
+            Employee Designation <br>
+            <input type="text" placeholder="Designation" ng-model="emp.desig"> <br>
+            <br>
+            Employee Information <br>
+            <input type="submit" value="Submit" ng-click="empData(emp)"> <br>
+            <br>
+        </form>
+    </div>
+    <script>
+        var app=angular.module('formCtrlApp',[]);
+        app.controller('empController',function($scope){
+            $scope.info="Its about Employee Details";
+            $scope.empData= function(data){
+                console.log(data);
+            };
+        });
+    </script>
+</body>
+</html>
